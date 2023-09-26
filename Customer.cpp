@@ -1,8 +1,8 @@
 
 #include "Customer.h"
 
-Customer::Customer(const string &name, const string &surnme, const string &phone, const string &address)
-: name(name), surnme(surnme), phone(phone), address(address) {}
+Customer::Customer(const int &id,const string &name, const string &surnme, const string &phone, const string &address)
+        :id(id), name(name), surnme(surnme), phone(phone), address(address) {}
 
 const string &Customer::getName() const {
     return name;
@@ -41,7 +41,15 @@ bool Customer::operator<(const Customer &right) const &{
 }
 
 void Customer::showCustomer() const {
-    cout << "Client: " << name << " " << surnme << endl;
+    cout <<"ID: " << id <<". Client: " << name << " " << surnme << endl;
     cout <<"Contact phone: " << phone << endl;
     cout <<"Address: " << address << endl;
+}
+
+void Customer::setId(int id) {
+    this->id=id;
+}
+
+int Customer::getId() const {
+    return id;
 }
