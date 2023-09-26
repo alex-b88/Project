@@ -13,4 +13,6 @@ add_executable(Project
         Customer.h
         Publication/Publication.cpp
         Publication/Publication.h
+        Publication/Book/Book.cpp
+        Publication/Book/Book.h
 )
