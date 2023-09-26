@@ -11,4 +11,6 @@ add_executable(Project
         Date/Date.cpp
         Customer.cpp
         Customer.h
-        )
+        Publication/Publication.cpp
+        Publication/Publication.h
+)
