@@ -15,4 +15,6 @@ add_executable(Project
         Publication/Publication.h
         Publication/Book/Book.cpp
         Publication/Book/Book.h
+        Publication/Article/Article.cpp
+        Publication/Article/Article.h
 )
