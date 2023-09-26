@@ -17,4 +17,8 @@ add_executable(Project
         Publication/Book/Book.h
         Publication/Article/Article.cpp
         Publication/Article/Article.h
+        Publication/Electronic/Electronic.cpp
+        Publication/Electronic/Electronic.h
+        Arhive.cpp
+        Arhive.h
 )

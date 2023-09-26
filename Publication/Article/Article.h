@@ -1,5 +1,5 @@
-#ifndef T28_HW_ARTICLE_H
-#define T28_HW_ARTICLE_H
+#ifndef PROJECT_ARTICLE_H
+#define PROJECT_ARTICLE_H
 
 #include "../Publication.h"
 
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif //T28_HW_ARTICLE_H
+#endif //PROJECT_ARTICLE_H

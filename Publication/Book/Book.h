@@ -1,5 +1,5 @@
-#ifndef T28_HW_BOOK_H
-#define T28_HW_BOOK_H
+#ifndef TPROJECT_BOOK_H
+#define PROJECT_BOOK_H
 
 #include "../Publication.h"
 
@@ -24,4 +24,4 @@ public:
 };
 
 
-#endif //T28_HW_BOOK_H
+#endif //PROJECT_HW_BOOK_H

@@ -1,5 +1,5 @@
-#ifndef T28_HW_PUBLICATION_H
-#define T28_HW_PUBLICATION_H
+#ifndef PROJECT_PUBLICATION_H
+#define PROJECT_PUBLICATION_H
 
 #include "string"
 #include "iostream"
@@ -33,4 +33,4 @@ public:
 };
 
 
-#endif //T28_HW_PUBLICATION_H
+#endif //TPROJECT_PUBLICATION_H

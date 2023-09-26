@@ -1,5 +1,5 @@
-#ifndef T28_HW_CUSTOMER_H
-#define T28_HW_CUSTOMER_H
+#ifndef PROJECT_CUSTOMER_H
+#define PROJECT_CUSTOMER_H
 
 #include "string"
 #include "iostream"
@@ -26,4 +26,4 @@ public:
 };
 
 
-#endif //T28_HW_CUSTOMER_H
+#endif //PROJECT_CUSTOMER_H
