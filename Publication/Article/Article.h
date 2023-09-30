@@ -1,5 +1,5 @@
-#ifndef PROJECT_ARTICLE_H
-#define PROJECT_ARTICLE_H
+#ifndef T28_HW_ARTICLE_H
+#define T28_HW_ARTICLE_H
 
 #include "../Publication.h"
 
@@ -24,7 +24,9 @@ public:
 
     virtual void show()const override;
     virtual string getType()const override;
+
+    friend std::ostream& operator << (std::ostream& os, const Article& a);
 };
 
 
-#endif //PROJECT_ARTICLE_H
+#endif //T28_HW_ARTICLE_H

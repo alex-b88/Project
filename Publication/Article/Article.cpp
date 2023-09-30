@@ -7,7 +7,7 @@ Article::Article() {
 }
 
 Article::Article(int isbn, string title, string author, string magazine_name, int number, int year)
-        : Publication(isbn,title,author)
+: Publication(isbn,title,author)
 {
     setMagazine_name(magazine_name);
     setNumber(number);
@@ -17,10 +17,10 @@ Article::Article(int isbn, string title, string author, string magazine_name, in
 Article::~Article() {}
 
 void Article::show() const {
-    cout << "ISBN: " << isbn << endl;
-    cout << "#" << number <<". Magazine: \"" << magazine_name <<"\"" << endl;
+    cout << "\t |-ISBN:" << isbn<< " (" << getType() <<"); Author: "<< author << "; Title: \"" << title <<"\""<< endl;
+/*    cout << "#" << number <<". Magazine: \"" << magazine_name <<"\"" << endl;
     cout << "Title: \"" << title <<"\"";
-    cout << " Author: " << author << endl;
+    cout << " Author: " << author << endl;*/
 
 }
 
@@ -29,6 +29,8 @@ string Article::getType() const {
 }
 
 void Article::setMagazine_name(string magazine_name) {
+    if(magazine_name.size()<=0)
+        throw new NameExeption();
     this->magazine_name = magazine_name;
 }
 
@@ -50,4 +52,12 @@ void Article::setYear(int year) {
 
 int Article::getYear() const {
     return 0;
+}
+
+std::ostream& operator<<(std::ostream& os, const Article& a){
+    os << "ISBN: " << a.isbn << endl;
+    os << "#" << a.number <<". Magazine: \"" << a.magazine_name <<"\"" << endl;
+    os << "Title: \"" << a.title <<"\"";
+    os << " Author: " << a.author << endl;
+    return os;
 }

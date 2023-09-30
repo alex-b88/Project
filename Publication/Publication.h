@@ -1,8 +1,9 @@
-#ifndef PROJECT_PUBLICATION_H
-#define PROJECT_PUBLICATION_H
+#ifndef T28_HW_PUBLICATION_H
+#define T28_HW_PUBLICATION_H
 
 #include "string"
 #include "iostream"
+#include "../Exeption.h"
 
 using namespace std;
 
@@ -27,10 +28,12 @@ public:
     void setAviavle(bool status);
     bool getAviable()const;
 
+    bool operator < (const Publication& obj)const; //TODO сортирует от большего в меньшему, надо на оборот
+
     virtual void show()const=0;
     virtual string getType()const=0;
 
 };
 
 
-#endif //TPROJECT_PUBLICATION_H
+#endif //T28_HW_PUBLICATION_H

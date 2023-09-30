@@ -1,5 +1,5 @@
-#ifndef PROJECT_ELECTRONIC_H
-#define PROJECT_ELECTRONIC_H
+#ifndef T28_HW_ELECTRONIC_H
+#define T28_HW_ELECTRONIC_H
 
 #include "../Publication.h"
 
@@ -21,7 +21,9 @@ public:
 
     virtual void show()const override;
     virtual string getType()const override;
+
+    friend std::ostream& operator << (std::ostream& os, const Electronic& e);
 };
 
 
-#endif //PROJECT_ELECTRONIC_H
+#endif //T28_HW_ELECTRONIC_H

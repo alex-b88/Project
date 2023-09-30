@@ -1,12 +1,9 @@
 cmake_minimum_required(VERSION 3.26)
-project(Project)
+project(T28_HW)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Project
-        main.cpp
-        DateTime/DT.h
-        DateTime/DT.cpp
+add_executable(T28_HW main.cpp
         Customer.cpp
         Customer.h
         Publication/Publication.cpp
@@ -19,4 +16,8 @@ add_executable(Project
         Publication/Electronic/Electronic.h
         Arhive.cpp
         Arhive.h
+        DateTime/DT.h
+        DateTime/DT.cpp
+        Exeption.cpp
+        Exeption.h
 )

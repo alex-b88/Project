@@ -3,6 +3,17 @@
 
 #include "string"
 #include "iostream"
+#include "vector"
+#include "set"
+#include "algorithm"
+#include "map"
+
+#include "Publication/Publication.h"
+#include "Publication/Book/Book.h"
+#include "Publication/Article/Article.h"
+#include "Publication/Electronic/Electronic.h"
+#include "DateTime/DT.h"
+
 using namespace std;
 
 class Customer {
@@ -12,6 +23,9 @@ protected:
     string surnme;
     string phone;
     string address;
+    multiset<Publication*> use_publications;
+    bool inArhive;
+
 public:
     Customer(const int &id, const string &name, const string &surnme, const string &phone, const string &address);
     const string &getName() const;
@@ -22,11 +36,18 @@ public:
     void setPhone(const string &phone);
     const string &getAddress() const;
     void setAddress(const string &address);
-    void showCustomer()const;
+    void showCustomer()const; //клиент со списком публикаций
     bool operator <(const Customer &right) const &;
+    void setInArhive(bool status);
 
-    void setId(int id);
-    int getId()const;
+    void addPublicationToCustomer(Publication* obj);
+    void showPublicationInUse()const;
+
+
+    void setId(int id);  //TODO возможно не понадобятся
+    int getId()const;    //
+
+    friend std::ostream& operator << (std::ostream& os, const Customer& cus); //клиент без публикаций
 };
 
 

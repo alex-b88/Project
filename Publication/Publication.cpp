@@ -45,6 +45,10 @@ void Publication::setAviavle(bool status) {
 
 bool Publication::getAviable() const {
     if(isAviable)
-        return true;
+    return true;
     return false;
+}
+
+bool Publication::operator<(const Publication &obj) const {
+    return this->getType()<obj.getType();
 }

@@ -1,5 +1,5 @@
-#ifndef TPROJECT_BOOK_H
-#define PROJECT_BOOK_H
+#ifndef T28_HW_BOOK_H
+#define T28_HW_BOOK_H
 
 #include "../Publication.h"
 
@@ -21,7 +21,10 @@ public:
 
     virtual void show()const override;
     virtual string getType()const override;
+
+    friend std::ostream& operator << (std::ostream& os, const Book& b);
+    //bool operator <(const Book& obj)const&;
 };
 
 
-#endif //PROJECT_HW_BOOK_H
+#endif //T28_HW_BOOK_H
