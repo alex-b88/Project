@@ -1,5 +1,5 @@
-#ifndef T28_HW_ARHIVE_H
-#define T28_HW_ARHIVE_H
+#ifndef Project_ARHIVE_H
+#define Project_ARHIVE_H
 
 #include "Customer.h"
 
@@ -23,4 +23,4 @@ public:
 };
 
 
-#endif //T28_HW_ARHIVE_H
+#endif //Project_ARHIVE_H

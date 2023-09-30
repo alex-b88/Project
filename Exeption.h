@@ -1,5 +1,5 @@
-#ifndef T28_HW_EXEPTION_H
-#define T28_HW_EXEPTION_H
+#ifndef Project_EXEPTION_H
+#define Project_EXEPTION_H
 
 #include "iostream"
 #include "string"
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif //T28_HW_EXEPTION_H
+#endif //Project_EXEPTION_H

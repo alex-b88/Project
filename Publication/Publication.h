@@ -1,9 +1,9 @@
-#ifndef T28_HW_PUBLICATION_H
-#define T28_HW_PUBLICATION_H
+#ifndef Project_PUBLICATION_H
+#define Project_PUBLICATION_H
 
 #include "string"
-#include "iostream"
 #include "../Exeption.h"
+#include "../Menus/Menu.h"
 
 using namespace std;
 
@@ -28,7 +28,7 @@ public:
     void setAviavle(bool status);
     bool getAviable()const;
 
-    bool operator < (const Publication& obj)const; //TODO сортирует от большего в меньшему, надо на оборот
+ //   bool operator < (const Publication& obj)const; //TODO сортирует от большего в меньшему, надо на оборот
 
     virtual void show()const=0;
     virtual string getType()const=0;
@@ -36,4 +36,4 @@ public:
 };
 
 
-#endif //T28_HW_PUBLICATION_H
+#endif //Project_PUBLICATION_H

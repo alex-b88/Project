@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(T28_HW)
+project(Project)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -20,4 +20,7 @@ add_executable(T28_HW main.cpp
         DateTime/DT.cpp
         Exeption.cpp
         Exeption.h
+        Menus/Menu.cpp
+        Menus/Menu.h
+        Publication/Book/TextBook.cpp
 )

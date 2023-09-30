@@ -24,6 +24,8 @@ int Publication::getIsbn() const {
 }
 
 void Publication::setTitile(string title) {
+    if(title.size()<=0)
+        throw new NameExeption;
     this->title=title;
 }
 
@@ -32,6 +34,8 @@ string Publication::getTitile() const {
 }
 
 void Publication::setAuthor(string author) {
+    if(author.size()<=0)
+        throw new NameExeption;
     this->author=author;
 }
 
@@ -49,6 +53,7 @@ bool Publication::getAviable() const {
     return false;
 }
 
+/*
 bool Publication::operator<(const Publication &obj) const {
     return this->getType()<obj.getType();
-}
+}*/

@@ -75,12 +75,7 @@ void Arhive::FindPublication() const {
     int menu;
     do{
         bool result =false;
-        cout <<"1. Find by ISBN" << endl;
-        cout <<"2. Find by author" << endl;
-        cout <<"3. Find by title" << endl;
-        cout <<"4. Find by type" << endl;
-        cout <<"0. Exit" << endl;
-        cout <<"Choice: ";
+        Menu::showArhiveFindPublication();
         cin >> menu;
         if(menu==0) result=true;
         switch (menu) {
@@ -127,10 +122,7 @@ void Arhive::FindPublication() const {
             }
             case 4:{
                 int input4;
-                cout <<"1.Show all books" << endl;
-                cout <<"2.Show all articles" << endl;
-                cout <<"3.Show all webs" << endl;
-                cout <<"Choice: ";
+                Menu::ArhiveFindPublication_show_by_type();
                 cin >> input4;
                 for(auto item:p_base){
                     switch(input4) {

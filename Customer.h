@@ -1,5 +1,5 @@
-#ifndef T28_HW_CUSTOMER_H
-#define T28_HW_CUSTOMER_H
+#ifndef Project_CUSTOMER_H
+#define Project_CUSTOMER_H
 
 #include "string"
 #include "iostream"
@@ -13,6 +13,7 @@
 #include "Publication/Article/Article.h"
 #include "Publication/Electronic/Electronic.h"
 #include "DateTime/DT.h"
+#include "Publication/Book/TextBook.h"
 
 using namespace std;
 
@@ -51,4 +52,4 @@ public:
 };
 
 
-#endif //T28_HW_CUSTOMER_H
+#endif //Project_CUSTOMER_H
