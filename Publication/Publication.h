@@ -28,7 +28,7 @@ public:
     void setAviavle(bool status);
     bool getAviable()const;
 
- //   bool operator < (const Publication& obj)const; //TODO сортирует от большего в меньшему, надо на оборот
+    bool operator < (const Publication& obj)const;
 
     virtual void show()const=0;
     virtual string getType()const=0;

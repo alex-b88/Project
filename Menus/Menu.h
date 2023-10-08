@@ -11,6 +11,7 @@ class Menu {
 public:
    static void showArhiveFindPublication();
    static void ArhiveFindPublication_show_by_type();
+   static void showPublications();
 };
 
 

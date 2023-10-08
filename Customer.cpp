@@ -84,3 +84,12 @@ void Customer::showPublicationInUse() const {
 void Customer::setInArhive(bool status) {
     this->inArhive=status;
 }
+
+void Customer::ReturnEdition(int isbn) {
+    for(auto item:use_publications){
+        if (item->getIsbn()==isbn){
+            use_publications.erase(item);
+            item->setAviavle(true);
+        }
+    }
+}//TODO проверить как работает

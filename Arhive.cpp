@@ -8,9 +8,9 @@ Arhive::Arhive() {
     p_base.insert(new Article(1221,"Harakteristika predprinimatelstva","Tkachenko Y.","C Arhive",632,2006));
     p_base.insert(new Article(1223,"USA absolyutnyj lider mirovogo farmrynka","Chencova M.","Economy",321,2007));
     p_base.insert(new Article(1224,"Aptechnyj rynok vitaminov","Pautova E.","Pharm",28,2008));
-    p_base.insert(new Article(1225,"Proektirovanie sistem menedzhmenta kachestva","Taratuta M.","Economy",146,2005));
+    p_base.insert(new Article(3924,"Proektirovanie sistem menedzhmenta kachestva","Taratuta M.","Economy",146,2005));
     p_base.insert(new Electronic(3917,"Zond NASA","Shvartc K.","http:\/\/unian.net","Uchenye nadeyutsya, chto issledovanie obrazcov prolet svet na to, kak zarodilas zhizn vo Vselennoj."));
-    p_base.insert(new Electronic(3919,"Teleskop Uebba","Topchij A.","http:\/\/news.com","Novye rezultaty raskryvayut bolshe informacii o maloizvestnom sostave okeana Evropy pod korkoj tverdogo vodyanogo lda."));
+    p_base.insert(new Electronic(1225,"Teleskop Uebba","Topchij A.","http:\/\/news.com","Novye rezultaty raskryvayut bolshe informacii o maloizvestnom sostave okeana Evropy pod korkoj tverdogo vodyanogo lda."));
     p_base.insert(new Electronic(3920,"New virus found","Sokolenko E.","http:\/\/bbc.com","On yavlyaetsya chastyu ranee neopoznannogo semejstva virusov."));
     p_base.insert(new Electronic(3921,"Na Solnce proizoshla moshnaya vspyshka","Limanskay E.","http://news.yahoo.com","Chast izlucheniya ot etoj vspyshki mozhet dostignut nashej planety."));
 
@@ -32,12 +32,7 @@ void Arhive::ShowAllPublicatios() const {
     int menu;
     do {
         bool result = false;
-        cout << "Show publications" << endl;
-        cout << "1. All" << endl;
-        cout << "2. Available" << endl;
-        cout << "3. Currently using" << endl;
-        cout << "0. Exit" << endl;
-        cout << "Choice: ";
+        Menu::showPublications();
         cin >> menu;
         if(menu==0) result=true;
         for (auto item: p_base) {
@@ -240,3 +235,4 @@ void Arhive::showCustomersInArhive() const {
         }
     }
 }
+

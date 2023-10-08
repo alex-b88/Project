@@ -3,12 +3,24 @@
 
 #include "Customer.h"
 
+struct compareOublication{
+    bool operator()(const Publication* left, const Publication*right)const{
+        if(left->getType()<right->getType())
+            return true;
+        else if(left->getType()==right->getType())
+            return left->getIsbn()<right->getIsbn();
+        else{
+            return false;
+        }
+    }
+};
+
 class Arhive {
 protected:
     static int customer_id;
     vector<Customer> clients;
     map<DT, vector<Customer>> orders;
-    multiset<Publication*> p_base;
+    multiset<Publication*,compareOublication> p_base;
 
 public:
     Arhive();

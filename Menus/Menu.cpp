@@ -15,3 +15,12 @@ void Menu::ArhiveFindPublication_show_by_type() {
     cout <<"3.Show all webs" << endl;
     cout <<"Choice: ";
 }
+
+void Menu::showPublications() {
+    cout << "Show publications" << endl;
+    cout << "1. All" << endl;
+    cout << "2. Available" << endl;
+    cout << "3. Currently using" << endl;
+    cout << "0. Exit" << endl;
+    cout << "Choice: ";
+}

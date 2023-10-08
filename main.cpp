@@ -3,9 +3,9 @@
 int Arhive::customer_id=5;
 
 int main() {
-    Arhive m;
-    TextBook tb(1234,"Math","Bevz","Ranok",2002,9);
-    tb.show();
+   Arhive m;
+/*    TextBook tb(1234,"Math","Bevz","Ranok",2002,9);
+    tb.show();*/
  //   m.FindPublication();
    //m.showAllCustomers();
  //   cout << (m.search(3920));
@@ -17,12 +17,11 @@ int main() {
     c.addPublicationToCustomer(new Electronic(3919,"Teleskop Uebba","Topchij A.","http:\/\/news.com","Novye rezultaty raskryvayut bolshe informacii o maloizvestnom sostave okeana Evropy pod korkoj tverdogo vodyanogo lda."));
     c.showPublicationInUse();*/
 
- //   m.ShowAllPublicatios();
-/*    m.showAllCustomers();
-    m.makeSession();
+    m.ShowAllPublicatios();
     m.makeSession();
     m.showCustomersInArhive();
-    m.FindPublication();*/
+
+ //   m.FindPublication();
 
     return 0;
 }

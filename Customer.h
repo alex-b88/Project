@@ -17,6 +17,13 @@
 
 using namespace std;
 
+struct compare_Customers{
+    bool operator()(const Publication* left, const Publication* right)const
+    {
+        return *left<*right;
+    }
+};
+
 class Customer {
 protected:
     int id;
@@ -24,7 +31,7 @@ protected:
     string surnme;
     string phone;
     string address;
-    multiset<Publication*> use_publications;
+    multiset<Publication*,compare_Customers> use_publications;
     bool inArhive;
 
 public:
@@ -47,6 +54,8 @@ public:
 
     void setId(int id);  //TODO возможно не понадобятся
     int getId()const;    //
+
+    void ReturnEdition(int isbn);
 
     friend std::ostream& operator << (std::ostream& os, const Customer& cus); //клиент без публикаций
 };
