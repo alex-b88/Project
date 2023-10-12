@@ -24,3 +24,24 @@ void Menu::showPublications() {
     cout << "0. Exit" << endl;
     cout << "Choice: ";
 }
+
+void Menu::MainMenu() {
+    cout << "1. Add client" << endl;
+    cout << "2. Del client" << endl;
+    cout << "3. Show all clients" << endl;
+    cout << "4. Add publication" << endl;
+    cout << "5. Find a publication" << endl;
+    cout << "6. Show publications" << endl;
+    cout << "7. Make a session" << endl;
+    cout << "8. Close the session" << endl;
+    cout << "9. Show clients in the archive" << endl;
+    cout << "0. Exit" << endl;
+    cout <<"Choice: ";
+}
+void Menu::addPiblication() {
+    cout << "1. Book" << endl;
+    cout << "2. Article" << endl;
+    cout << "3. Electronic" << endl;
+    cout << "0. Exit" << endl;
+    cout <<"Choice: ";
+}

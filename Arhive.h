@@ -26,12 +26,15 @@ public:
     Arhive();
     ~Arhive();
     void addCustomer();
+    void delCustomer();
     void showAllCustomers()const;
+    void addPublication();
     void FindPublication()const;
     void ShowAllPublicatios()const;
     void makeSession();
     void showCustomersInArhive()const;
     void delSession();
+    bool CheckIfExistISBN(int x);
 };
 
 

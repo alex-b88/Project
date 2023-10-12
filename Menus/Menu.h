@@ -12,6 +12,8 @@ public:
    static void showArhiveFindPublication();
    static void ArhiveFindPublication_show_by_type();
    static void showPublications();
+   static void MainMenu();
+   static void addPiblication();
 };
 
 

@@ -27,6 +27,86 @@ Arhive::~Arhive() {
     }
 }
 
+void Arhive::addPublication() {
+    int add_menu;
+    do{
+        Menu::addPiblication();
+        cin >> add_menu;
+        switch(add_menu){
+            case 1:{
+                int isbn,year;
+                string title,author,publication;
+                cout <<"=Adding a book="<< endl;
+                cout <<"Enter isbn: ";
+                cin >> isbn;
+                if(CheckIfExistISBN(isbn)){
+                    cout << "This ISBN is already exist" << endl;
+                    break;
+                }
+                cout << "Enter title: ";
+                cin >> ws;
+                getline(cin,title);
+                cout <<"Enter author: ";
+                getline(cin,author);
+                cout <<"Enter publication: ";
+                getline(cin,publication);
+                cout <<"Enter year: ";
+                cin >> year;
+                p_base.insert(new Book(isbn,title,author,publication,year));
+                cout << "Book added!" << endl;
+                break;
+            }
+            case 2:{
+                cout <<"=Adding an article="<< endl;
+                int isbn,number,year;
+                string title,author,m_name;
+                cout <<"Enter isbn: ";
+                cin >> isbn;
+                if(CheckIfExistISBN(isbn)){
+                    cout << "This ISBN is already exist" << endl;
+                    break;
+                }
+                cout << "Enter title: ";
+                cin >> ws;
+                getline(cin,title);
+                cout <<"Enter author: ";
+                getline(cin,author);
+                cout <<"Enter magazine: ";
+                getline(cin,m_name);
+                cout <<"Enter number: ";
+                cin >> number;
+                cout <<"Enter year: ";
+                cin >> year;
+                p_base.insert(new Article(isbn,title,author,m_name,number,year));
+                cout << "Article added!" << endl;
+                break;
+            }
+            case 3:{
+                cout <<"=Adding an electronic="<< endl;
+                int isbn;
+                string title,author,link, anotation;
+                cout <<"Enter isbn: ";
+                cin >> isbn;
+                if(CheckIfExistISBN(isbn)){
+                    cout << "This ISBN is already exist" << endl;
+                    break;
+                }
+                cout << "Enter title: ";
+                cin >> ws;
+                getline(cin,title);
+                cout <<"Enter author: ";
+                getline(cin,author);
+                cout <<"Enter link: ";
+                getline(cin,link);
+                cout <<"Enter annotation: ";
+                getline(cin,anotation);
+                p_base.insert(new Electronic(isbn,title,author,link,anotation));
+                cout << "Electronic added!" << endl;
+                break;
+            }
+        }
+    }while(add_menu!=0);
+}
 
 void Arhive::ShowAllPublicatios() const {
     int menu;
@@ -160,7 +240,7 @@ void Arhive::addCustomer() {
     string t_name, t_surname,t_phone, t_address;
     cout <<"Adding a customer" << endl;
     cout <<"Enter name: ";
- //   cin >> ws;
+    cin >> ws;
     getline(cin, t_name);
     cout <<"Enter surname: ";
     getline(cin,t_surname);
@@ -171,6 +251,21 @@ void Arhive::addCustomer() {
     customer_id++;
     clients.push_back(Customer(customer_id,t_name,t_surname,t_phone,t_address));
     cout << "Client added successfully!" << endl;
+}
+
+void Arhive::delCustomer() {
+    int t_id;
+    cout <<"=Deleting the customer=" << endl;
+    cout <<"Enter customer's id: ";
+    cin >> t_id;
+    for (int i = 0; i < clients.size(); ++i) {
+        if(clients[i].getId()==t_id){
+            clients.erase(clients.begin()+i);
+            cout << "The client was removed!" << endl;
+            return;
+        }
+    }
+    cout <<"No client found with id:\"" << t_id <<"\" in base!" << endl;
 }
 
 void Arhive::showAllCustomers() const {
@@ -188,6 +283,7 @@ void Arhive::makeSession() {
     int cus_id;
     bool check_client = false;
     bool isAdded=false;
+    cout <<"=Adding a session to the archive=" << endl;
     cout <<"Enter client id: ";
     cin>> cus_id;
     for(auto item:clients)
@@ -226,7 +322,8 @@ void Arhive::makeSession() {
             }
         }while(menu!=0);
         if(isAdded){
-            orders[DT()].push_back(Customer(item));
+            orders[DT()].push_back(item);
+            cout <<"Session made successfully!" << endl;
             break;
         }
     }
@@ -236,10 +333,9 @@ void Arhive::makeSession() {
 
 void Arhive::showCustomersInArhive() const {
     if(orders.begin()==orders.end()){
-        cout <<"No clients in archive";
+        cout <<"No clients in archive" << endl;
         return;
     }
-
     for(auto obj : orders){
         cout << obj.first << endl;
         for(auto obj2 : obj.second){
@@ -251,27 +347,31 @@ void Arhive::showCustomersInArhive() const {
 void Arhive::delSession() {
     int cus_id;
     bool check_client = false;
+    cout <<"=Closing the session in archive=" << endl;
     cout <<"Enter client id: ";
     cin>> cus_id;
-    for(auto item:clients){
-        if(item.getId()==cus_id) {
-            check_client = true;
-            item.ReturnAllEditions();
-            item.setInArhive(false);
-            break;
+    for(auto obj=orders.begin(); obj!=orders.end(); ++obj){
+        for(auto obj2 : obj->second){
+            if(obj2.getId()==cus_id){
+                check_client = true;
+                obj2.ReturnAllEditions();
+                obj2.setInArhive(false);
+                orders.erase(obj);
+                cout <<"Session closed successfully!" << endl;
+                return;
+            }
         }
     }
     if(!check_client){
-        cout <<"No client in archive with this id!" << endl;
+        cout <<"No client is in the archive with this id!" << endl;
         return;
-    }
-    for(auto it=orders.begin(); it!=orders.end(); ++it){
-            for(auto clnts : it->second){
-                    if(clnts.getId()==cus_id){
-                        it=orders.erase(it);
-                        return;
-                    }
-            }
     }
 }
 
+bool Arhive::CheckIfExistISBN(int x) {
+    for(auto it:p_base){
+        if(it->getIsbn()==x)
+            return true;
+    }
+    return false;
+}
