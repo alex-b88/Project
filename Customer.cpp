@@ -77,7 +77,6 @@ void Customer::addPublicationToCustomer(Publication *obj) {
 void Customer::showPublicationInUse() const {
     for(auto item : use_publications){
         item->show();
-       // cout << endl;
     }
 }
 
@@ -93,3 +92,9 @@ void Customer::ReturnEdition(int isbn) {
         }
     }
 }//TODO проверить как работает
+
+void Customer::ReturnAllEditions() {
+    for(auto item:use_publications)
+        item->setAviavle(true);
+    use_publications.clear();
+}

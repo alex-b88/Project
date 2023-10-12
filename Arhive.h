@@ -18,9 +18,9 @@ struct compareOublication{
 class Arhive {
 protected:
     static int customer_id;
-    vector<Customer> clients;
-    map<DT, vector<Customer>> orders;
-    multiset<Publication*,compareOublication> p_base;
+    vector<Customer> clients; //клиенты
+    multiset<Publication*,compareOublication> p_base; //база публикаций
+    map<DT, vector<Customer>> orders; // активные сессии клиентов
 
 public:
     Arhive();
@@ -31,7 +31,7 @@ public:
     void ShowAllPublicatios()const;
     void makeSession();
     void showCustomersInArhive()const;
-    //TODO создать удаление сессии
+    void delSession();
 };
 
 

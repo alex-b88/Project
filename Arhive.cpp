@@ -155,6 +155,7 @@ void Arhive::FindPublication() const {
     } while(menu!=0);
 }
 
+
 void Arhive::addCustomer() {
     string t_name, t_surname,t_phone, t_address;
     cout <<"Adding a customer" << endl;
@@ -186,6 +187,7 @@ void Arhive::showAllCustomers() const {
 void Arhive::makeSession() {
     int cus_id;
     bool check_client = false;
+    bool isAdded=false;
     cout <<"Enter client id: ";
     cin>> cus_id;
     for(auto item:clients)
@@ -193,9 +195,9 @@ void Arhive::makeSession() {
         check_client=true;
     //поиск и вставка публикации в клиента
         int publication_id;
-        bool check_publication = false;
         int menu;
         do{
+            bool check_publication = false;
             cout << "1. Add publication" << endl;
             cout << "0. Exit" << endl;
             cout <<"Choice: ";
@@ -209,30 +211,67 @@ void Arhive::makeSession() {
                                 cout <<"Publication isn't available!\n";
                                 break;
                             }
+                            else {
                             check_publication = true;
                             item.addPublicationToCustomer(it);
                             it->setAviavle(false);
                             item.setInArhive(true);
                             cout << "Added to session" << endl;
+                            isAdded = true;
                             break;
+                            }
                         }
                 }
                 if(!check_publication) cout << "No publication found with this ISBN" << endl;
             }
         }while(menu!=0);
-        orders[DT()].push_back(Customer(item));
-        break;
+        if(isAdded){
+            orders[DT()].push_back(Customer(item));
+            break;
+        }
     }
     if(!check_client)
         cout << "No client found"<< endl;
 }
 
 void Arhive::showCustomersInArhive() const {
+    if(orders.begin()==orders.end()){
+        cout <<"No clients in archive";
+        return;
+    }
+
     for(auto obj : orders){
         cout << obj.first << endl;
         for(auto obj2 : obj.second){
                 obj2.showCustomer();
         }
+    }
+}
+
+void Arhive::delSession() {
+    int cus_id;
+    bool check_client = false;
+    cout <<"Enter client id: ";
+    cin>> cus_id;
+    for(auto item:clients){
+        if(item.getId()==cus_id) {
+            check_client = true;
+            item.ReturnAllEditions();
+            item.setInArhive(false);
+            break;
+        }
+    }
+    if(!check_client){
+        cout <<"No client in archive with this id!" << endl;
+        return;
+    }
+    for(auto it=orders.begin(); it!=orders.end(); ++it){
+            for(auto clnts : it->second){
+                    if(clnts.getId()==cus_id){
+                        it=orders.erase(it);
+                        return;
+                    }
+            }
     }
 }
 

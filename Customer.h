@@ -56,6 +56,7 @@ public:
     int getId()const;    //
 
     void ReturnEdition(int isbn);
+    void ReturnAllEditions();
 
     friend std::ostream& operator << (std::ostream& os, const Customer& cus); //клиент без публикаций
 };
