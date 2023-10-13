@@ -56,3 +56,4 @@ bool Publication::getAviable() const {
 bool Publication::operator<(const Publication &obj) const {
     return this->getIsbn()<obj.getIsbn();
 }
+

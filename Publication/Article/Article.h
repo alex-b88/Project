@@ -15,15 +15,21 @@ public:
     virtual ~Article();
 
     void setMagazine_name(string magazine_name);
-    string getMagazine_name()const;
+    string getMagazine_name()const override;
     void setNumber(int number);
-    int geNumber()const;
+    int geNumber()const override;
 
     void setYear(int year);
-    int getYear()const;
+    int getYear()const override;
 
     virtual void show()const override;
     virtual string getType()const override;
+
+    //заглушки
+    virtual string getPublications()const override;
+    virtual string getLink()const override;
+    virtual string getAnotation()const override;
+
 
     friend std::ostream& operator << (std::ostream& os, const Article& a);
 };

@@ -14,15 +14,21 @@ public:
     virtual ~Electronic();
 
     void setLink(string link);
-    string getLink()const;
+    string getLink()const override;
 
     void setAnotation(string anotation);
-    string getAnotation()const;
+    string getAnotation()const override;
 
     virtual void show()const override;
     virtual string getType()const override;
 
     friend std::ostream& operator << (std::ostream& os, const Electronic& e);
+
+    //заглушки
+    virtual string getMagazine_name()const override;
+    virtual int geNumber()const override;
+    virtual int getYear()const override;
+    virtual string getPublications()const override;
 };
 
 

@@ -1,10 +1,12 @@
 #include "Menus/Menu.h"
 #include "Arhive.h"
 
-int Arhive::customer_id=5;
+int Arhive::customer_id=0; //5
 
 int main() {
    Arhive m;
+   m.loadClientsFromFile();
+   m.loadPublicationFromFile();
     int main_menu;
     do{
         Menu::MainMenu();

@@ -1,6 +1,7 @@
 #include "Arhive.h"
 
 Arhive::Arhive() {
+/*
     p_base.insert(new Book(2345,"Kobzar","Shevchenko T.","Ranok",2009));
     p_base.insert(new Book(2346,"My love","Franko I.","Folio",2006));
     p_base.insert(new Book(2347,"Mavka","Ykrainka L.","Ranok",2023));
@@ -14,11 +15,13 @@ Arhive::Arhive() {
     p_base.insert(new Electronic(3920,"New virus found","Sokolenko E.","http:\/\/bbc.com","On yavlyaetsya chastyu ranee neopoznannogo semejstva virusov."));
     p_base.insert(new Electronic(3921,"Na Solnce proizoshla moshnaya vspyshka","Limanskay E.","http://news.yahoo.com","Chast izlucheniya ot etoj vspyshki mozhet dostignut nashej planety."));
 
+
     clients.push_back(Customer(1,"Olena","Popova","0663442321","Gagarina 23"));
     clients.push_back(Customer(2,"Mariya","Nesterova","0635674312","Peremogy 11"));
     clients.push_back(Customer(3,"Oleg","Memirovsky","0930935219","Pushkina 45"));
     clients.push_back(Customer(4,"Dmitrij","Melihov","0675677321","Girshmana 81"));
     clients.push_back(Customer(5,"Victorya","Polupan","0996565743","Kashubi 6"));
+*/
 }
 
 Arhive::~Arhive() {
@@ -374,4 +377,107 @@ bool Arhive::CheckIfExistISBN(int x) {
             return true;
     }
     return false;
+}
+
+void Arhive::saveClientsToFile() {
+    if(clients.begin()==clients.end())
+        return;
+    ofstream file("Clients.txt");
+    if(file.is_open()){
+        for (int i = 0; i < clients.size(); ++i) {
+            file << clients[i].getId() << endl;
+            file << clients[i].getName() << endl;
+            file << clients[i].getSurnme() << endl;
+            file << clients[i].getPhone() << endl;
+            file << clients[i].getAddress() << endl;
+        }
+        cout << "Clients saved to file" << endl;
+        file.close();
+    }
+}
+
+void Arhive::loadClientsFromFile() {
+    ifstream file("Clients.txt");
+    if(!file.is_open()){
+        cout <<"File with clients not found!" << endl;
+        return;
+    }
+    int id;
+    string name,surname,phone,address;
+    while (file >> id) {
+        file.get();
+        getline(file, name);
+        getline(file, surname);
+        getline(file, phone);
+        getline(file, address);
+        clients.push_back(Customer(id, name, surname, phone, address));
+    }
+    file.close();
+}
+
+void Arhive::savePublicationToFile() {
+    if(p_base.begin()==p_base.end())
+        return;
+    ofstream file("Publications.txt");
+    if(!file.is_open())
+        return;
+    for(auto item : p_base)
+    {
+        file << item->getIsbn() << endl;
+        file << item->getType() << endl;
+        file << item->getTitile() << endl;
+        file << item->getAuthor() << endl;
+        if(item->getType()=="Article"){
+            file << item->getMagazine_name() << endl;
+            file << item->geNumber() << endl;
+            file << item->getYear() << endl;
+        }
+        else if(item->getType()=="Book"){
+            file << item->getPublications() << endl;
+            file << item->getYear() << endl;
+        }
+        else if(item->getType()=="Electronic"){
+            file << item->getLink() << endl;
+            file << item->getAnotation() << endl;
+        }
+    }
+    file.close();
+}
+
+void Arhive::loadPublicationFromFile() {
+    ifstream file("Publications.txt");
+    if(!file.is_open()){
+        cout <<"File with publication not find" << endl;
+        return;
+    }
+    int id;
+    string title,author,type;
+    while(file >> id){
+        file.get();
+        getline(file,type);
+        getline(file,title);
+        getline(file,author);
+        if(type=="Article"){
+            int number, year;
+            string mag_name;
+            getline(file,mag_name);
+            file >> number;
+            file >> year;
+            p_base.insert(new Article(id,title,author,mag_name,number,year));
+        }
+        else if(type=="Book"){
+            string publication;
+            int year;
+            getline(file,publication);
+            file >> year;
+            p_base.insert(new Book(id,title,author,publication,year));
+        }
+        else if(type=="Electronic"){
+            string link,annotation;
+            getline(file,link);
+            getline(file,annotation);
+            p_base.insert(new Electronic(id,title,author,link,annotation));
+        }
+    }
+    file.close();
 }

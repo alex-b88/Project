@@ -14,16 +14,21 @@ public:
     virtual ~Book();
 
     void setPublications(string publications);
-    string getPublications()const;
+    string getPublications()const override;
 
     void setYear(int year);
-    int getYear()const;
+    int getYear()const override;
 
     virtual void show()const override;
     virtual string getType()const override;
 
+    //заглушки
+    virtual string getMagazine_name()const override;
+    virtual int geNumber()const override;
+    virtual string getLink()const override;
+    virtual string getAnotation()const override;
+
     friend std::ostream& operator << (std::ostream& os, const Book& b);
-    //bool operator <(const Book& obj)const&;
 };
 
 

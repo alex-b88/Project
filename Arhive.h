@@ -2,6 +2,7 @@
 #define Project_ARHIVE_H
 
 #include "Customer.h"
+#include "fstream"
 
 struct compareOublication{
     bool operator()(const Publication* left, const Publication*right)const{
@@ -35,6 +36,12 @@ public:
     void showCustomersInArhive()const;
     void delSession();
     bool CheckIfExistISBN(int x);
+
+    void saveClientsToFile();
+    void loadClientsFromFile();
+
+    void savePublicationToFile();
+    void loadPublicationFromFile();
 };
 
 

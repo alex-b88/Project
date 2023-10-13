@@ -51,7 +51,7 @@ void Article::setYear(int year) {
 }
 
 int Article::getYear() const {
-    return 0;
+    return year;
 }
 
 std::ostream& operator<<(std::ostream& os, const Article& a){
@@ -60,4 +60,17 @@ std::ostream& operator<<(std::ostream& os, const Article& a){
     os << "Title: \"" << a.title <<"\"";
     os << " Author: " << a.author << endl;
     return os;
+}
+
+
+string Article::getPublications() const {
+    return "";
+}
+
+string Article::getLink() const {
+    return "";
+}
+
+string Article::getAnotation() const {
+    return "";
 }
