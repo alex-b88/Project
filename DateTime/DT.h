@@ -34,6 +34,7 @@ public:
     int getSec()const;
 
     bool valid()const;
+    std::string to_String()const;
 
     bool operator == (const DT& obj)const&;
     bool operator != (const DT& obj)const&;

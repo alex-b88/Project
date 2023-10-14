@@ -42,6 +42,7 @@ public:
 
     void savePublicationToFile();
     void loadPublicationFromFile();
+    void saveHistory();
 };
 
 

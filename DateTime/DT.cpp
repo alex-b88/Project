@@ -205,3 +205,11 @@ std::istream& operator>>(std::istream& is, DT& t)
     } while (!t.valid());
     return is;
 }
+
+std::string DT::to_String()const {
+    std::string tmp;
+    tmp=std::to_string(day/10)+std::to_string(day%10)+"."+std::to_string(month/10)+std::to_string(month%10)+"."+std::to_string(year);
+    tmp+=" ";
+    tmp+=std::to_string(hour/10)+std::to_string(hour%10)+":"+std::to_string(min/10)+std::to_string(min%10)+":"+std::to_string(sec/10)+std::to_string(sec%10);
+    return tmp;
+}

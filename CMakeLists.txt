@@ -22,5 +22,4 @@ add_executable(T28_HW main.cpp
         Exeption.h
         Menus/Menu.cpp
         Menus/Menu.h
-        Publication/Book/TextBook.cpp
 )

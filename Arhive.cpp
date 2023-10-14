@@ -1,7 +1,9 @@
 #include "Arhive.h"
 
 Arhive::Arhive() {
-/*
+    Arhive::loadClientsFromFile();
+    Arhive::loadPublicationFromFile();
+    /*
     p_base.insert(new Book(2345,"Kobzar","Shevchenko T.","Ranok",2009));
     p_base.insert(new Book(2346,"My love","Franko I.","Folio",2006));
     p_base.insert(new Book(2347,"Mavka","Ykrainka L.","Ranok",2023));
@@ -25,6 +27,8 @@ Arhive::Arhive() {
 }
 
 Arhive::~Arhive() {
+    Arhive::saveClientsToFile();
+    Arhive::savePublicationToFile();
     for(auto item:p_base){
         delete item;
     }
@@ -272,7 +276,7 @@ void Arhive::delCustomer() {
 }
 
 void Arhive::showAllCustomers() const {
-    if(clients.size()==0){
+    if(clients.begin()==clients.end()){
         cout <<"No clients in base!" << endl;
         return;
     }
@@ -439,6 +443,7 @@ void Arhive::savePublicationToFile() {
         else if(item->getType()=="Electronic"){
             file << item->getLink() << endl;
             file << item->getAnotation() << endl;
+            //file << ((Electronic*)item)->getLink();
         }
     }
     file.close();
@@ -480,4 +485,16 @@ void Arhive::loadPublicationFromFile() {
         }
     }
     file.close();
+}
+
+void Arhive::saveHistory() {
+    ofstream file("Hostory.txt", ios::app);
+    if(!file.is_open()){
+        cout <<"History file not found" << endl;
+        return;
+    }
+/*    for(auto it : orders){
+        file << it.first.to_String();
+    }*/ // TODO доделать
+
 }

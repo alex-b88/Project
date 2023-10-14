@@ -5,8 +5,6 @@ int Arhive::customer_id=0; //5
 
 int main() {
    Arhive m;
-   m.loadClientsFromFile();
-   m.loadPublicationFromFile();
     int main_menu;
     do{
         Menu::MainMenu();
