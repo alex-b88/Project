@@ -14,10 +14,10 @@ public:
     virtual ~Electronic();
 
     void setLink(string link);
-    string getLink()const override;
+    string getLink()const;
 
     void setAnotation(string anotation);
-    string getAnotation()const override;
+    string getAnotation()const;
 
     virtual void show()const override;
     virtual string getType()const override;
@@ -25,10 +25,10 @@ public:
     friend std::ostream& operator << (std::ostream& os, const Electronic& e);
 
     //заглушки
-    virtual string getMagazine_name()const override;
+/*    virtual string getMagazine_name()const override;
     virtual int geNumber()const override;
     virtual int getYear()const override;
-    virtual string getPublications()const override;
+    virtual string getPublications()const override;*/
 };
 
 

@@ -61,16 +61,3 @@ std::ostream& operator<<(std::ostream& os, const Article& a){
     os << " Author: " << a.author << endl;
     return os;
 }
-
-
-string Article::getPublications() const {
-    return "";
-}
-
-string Article::getLink() const {
-    return "";
-}
-
-string Article::getAnotation() const {
-    return "";
-}

@@ -432,20 +432,20 @@ void Arhive::savePublicationToFile() {
         file << item->getTitile() << endl;
         file << item->getAuthor() << endl;
         if(item->getType()=="Article"){
-            file << item->getMagazine_name() << endl;
-            file << item->geNumber() << endl;
-            file << item->getYear() << endl;
+            file << ((Article*)item)->getMagazine_name() << endl;
+            file << ((Article*)item)->geNumber() << endl;
+            file << ((Article*)item)->getYear() << endl;
         }
         else if(item->getType()=="Book"){
-            file << item->getPublications() << endl;
-            file << item->getYear() << endl;
+            file << ((Book*)item)->getPublications() << endl;
+            file << ((Book*)item)->getYear() << endl;
         }
         else if(item->getType()=="Electronic"){
-            file << item->getLink() << endl;
-            file << item->getAnotation() << endl;
-            //file << ((Electronic*)item)->getLink();
+            file << ((Electronic*)item)->getLink() << endl;
+            file << ((Electronic*)item)->getAnotation() << endl;
         }
     }
+    cout <<"Articles saved to file" << endl;
     file.close();
 }
 

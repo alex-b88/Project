@@ -55,19 +55,3 @@ std::ostream& operator<<(std::ostream& os, const Electronic& e){
     os <<"Annotation: " << e.anotation << endl;
     return os;
 }
-
-string Electronic::getMagazine_name() const {
-    return "";
-}
-
-int Electronic::geNumber() const {
-    return 0;
-}
-
-int Electronic::getYear() const {
-    return 0;
-}
-
-string Electronic::getPublications() const {
-    return "";
-}

@@ -26,6 +26,13 @@ Taratuta M.
 Economy
 146
 2005
+3925
+Article
+Video Review
+Petrenko
+KinoPoshyk
+3321
+2023
 2345
 Book
 Kobzar
@@ -50,6 +57,12 @@ Marusya
 Vovchok M.
 KSD
 2021
+2349
+Book
+C++
+Prat
+Zorya
+2005
 1225
 Electronic
 Teleskop Uebba
@@ -74,3 +87,9 @@ Na Solnce proizoshla moshnaya vspyshka
 Limanskay E.
 http://news.yahoo.com
 Chast izlucheniya ot etoj vspyshki mozhet dostignut nashej planety.
+3922
+Electronic
+PDF
+Tempest
+http://mypdf.com/article7589234
+Short story about PDF format

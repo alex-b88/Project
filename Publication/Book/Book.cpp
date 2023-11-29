@@ -53,19 +53,3 @@ std::ostream& operator<<(std::ostream& os, const Book& b){
     os <<"Year: " << b.year << endl;
     return os;
 }
-
-string Book::getMagazine_name() const {
-    return "";
-}
-
-int Book::geNumber() const {
-    return 0;
-}
-
-string Book::getLink() const {
-    return "";
-}
-
-string Book::getAnotation() const {
-    return "";
-}

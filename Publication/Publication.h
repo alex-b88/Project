@@ -33,7 +33,7 @@ public:
     virtual void show()const=0;
     virtual string getType()const=0;
 
-    //виртуальные методы для класса Article
+/*    //виртуальные методы для класса Article
     virtual string getMagazine_name()const=0;
     virtual int geNumber()const=0;
     virtual int getYear()const=0;
@@ -42,7 +42,7 @@ public:
 
     //виртуальные методы для класса Link
     virtual string getLink()const=0;
-    virtual string getAnotation()const=0;
+    virtual string getAnotation()const=0;*/
 };
 
 
